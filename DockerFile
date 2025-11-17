@@ -1,0 +1,27 @@
+# Use Python 3.10 slim image as base
+FROM python:3.10-slim
+
+# Set working directory to match your original structure
+WORKDIR /backend
+
+# Install system dependencies required for building packages
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install uv for faster package installation
+RUN pip install --no-cache-dir uv
+
+# Copy requirements file first (for better caching)
+COPY backend/requirements.txt .
+
+# Install Python dependencies using uv
+RUN uv pip install --system --no-cache -r requirements.txt
+
+# Copy the entire backend directory
+COPY backend/ .
+
+# Run the FastAPI application with Gunicorn and Uvicorn workers
+CMD gunicorn -w 1 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:$PORT
