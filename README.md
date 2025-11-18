@@ -1,4 +1,9 @@
 # 🤖 AI RAG Agent with LangGraph
+<a href="https://youtu.be/mKupDsh9NjE?si=ah339pbRWZf9ciLr" title="YouTube Overview">
+  <img src="https://img.icons8.com/ios-filled/20/FF0000/youtube-play.png" />
+</a>
+
+<img width="1840" height="853" alt="image" src="https://github.com/user-attachments/assets/d8a545c3-e7c3-47fc-9d39-05bbcddc2198" />
 
 An intelligent Retrieval-Augmented Generation (RAG) agent built with LangGraph, FastAPI, and Streamlit. This agent intelligently routes queries between an internal knowledge base (vector store) and web search to provide accurate, context-aware responses.
 
@@ -275,3 +280,4 @@ rag-agent-project/
 ```
 
 Built with ❤️ using LangGraph and FastAPI
+
